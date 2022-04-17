@@ -35,7 +35,7 @@ const Register = () => {
             
             <div className='login-box mx-auto '>
          
-          <h2 className='text-center display-1 text-white'>Login Page!</h2>
+          <h3 className='text-center display-1 text-white'>Register Page!</h3>
             <Form className='form-container' onSubmit={handleSubmitLoginForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Enter email" required onChange={event => setEmail(event.target.value)} />
