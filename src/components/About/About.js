@@ -7,7 +7,7 @@ const About = () => {
     return (
         <div className='w-100'>
             <div className='text-center'>
-            <h2 class="section-heading text-center mt-5">About me</h2>
+            <h2 className="section-heading text-center mt-5">About me</h2>
             </div>
 
             <div className='d-flex justify-content-between container mx-auto my-5'>

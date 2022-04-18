@@ -3,6 +3,8 @@ import { Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithFacebook } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 import './Login.css';
 
 
@@ -33,11 +35,6 @@ const Login = () => {
         navigate(from, {replace: true});
     }
 
-    if (loading) {
-        return <div>
-            <p className='text-info'>Loading...</p>
-        </div>
-    }
 
     if (fbLoading) {
         return <div>
@@ -45,22 +42,12 @@ const Login = () => {
         </div>
     }
 
-    if (fbError) {
-        return <div>
-            <p>{fbError.message}</p>
-        </div>
-    }
-
-    if (error) {
-        return <div>
-            <p>{error.message}</p>
-        </div>
-    }
+    
 
     const handleSubmitLoginForm = async (event) => {
         event.preventDefault();
         await signInWithEmailAndPassword(email, password);
-         console.log(user);
+
     };
 
     return (
@@ -81,6 +68,7 @@ const Login = () => {
                         <input type="submit" value="Login" />
                         {loading && <p className='text-success fw-bold'>Loading...</p>}
                         {error && <p className='text-danger fw-bold'>{error.message}</p>}
+                        <ToastContainer/>
                     </Form>
                     <div className='text-center'>
                         <p className='mt-3 mb-0 text-white'>Forgot password? <span role="button">

@@ -8,7 +8,7 @@ const Blog = () => {
     return (
         <div className=''>
             <div className='text-center'>
-            <h2 class="section-heading text-center my-5">Question Answer</h2>
+            <h2 className="section-heading text-center my-5">Question Answer</h2>
             </div>
              
             <div className='w-50 mx-auto '>

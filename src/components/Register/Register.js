@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithFacebook } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Register = () => {
@@ -24,9 +26,12 @@ const Register = () => {
         event.preventDefault();
         if(password !== confirmPassword){
             setError('Password Not match!!')
+            toast('Password Not match!!');
         }else{
             
             createUserWithEmailAndPassword(email, password);
+            toast('Registration Successful')
+
         }
     };
     console.log(user);
@@ -50,6 +55,7 @@ const Register = () => {
                 </Form.Group>
                 {error && <p>{error}</p> }
                 <input type="submit" value="Register" />
+                <ToastContainer/>
                
             </Form>
             <div className='text-center'>
