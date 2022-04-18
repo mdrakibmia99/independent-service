@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import partner1 from '../../images/partner1.jpg';
@@ -13,8 +13,15 @@ import partner9 from '../../images/partner9.jpg';
 
 import Services from '../../components/Services/Services';
 import Banner from '../../components/Banner/Banner';
+import Service from '../../components/Service/Service';
 
 const Home = () => {
+    const [services,setServices]=useState([]);
+    useEffect(()=>{
+        fetch('/services.json')
+        .then(res=> res.json())
+        .then(data=> setServices(data))
+    },[])
     return (
         <section className='overflow-hidden'>
             {/* <section className="hero text-center vh-100 vw-100 d-flex flex-column justify-content-center">
@@ -64,7 +71,17 @@ const Home = () => {
                 </div>
                 {/* intro */}
                 <div className='intro-line my-5'><hr /></div>
-               <Services></Services>
+               {/* <Services></Services> */}
+               <h2 className='common-header mb-5'># <span>MY SERVICES</span></h2>
+<section className='d-flex flex-lg-row flex-column justify-content-between align-items-center gap-3'>
+    
+                    {
+                        services.slice(0, 3).map(service => <Service
+                            key={service.sid}
+                            service={service}
+                        ></Service>)
+                    }
+                </section>
             </section>
         </section>
     );

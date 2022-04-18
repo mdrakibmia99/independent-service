@@ -1,16 +1,45 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import services1 from '../../images/services/services1.jpg';
-import services2 from '../../images/services/services2.jpg';
-import services3 from '../../images/services/services3.jpg';
+import React, { useEffect, useState } from 'react';
+
+
+import Service from '../Service/Service';
 
 
 const Services = () => {
+    const [services,setServices]=useState([]);
+    useEffect(()=>{
+        fetch('/services.json')
+        .then(res=> res.json())
+        .then(data=> setServices(data))
+    },[])
+
+
+
+    // const navigate = useNavigate();
+
+    // const navigateToServiceDetail = (id) => {
+    //     navigate(`/service/${id}`)
+    // };
+
     return (
         <div className='mt-5'>
             <h2 className='common-header mb-5'># <span>MY SERVICES</span></h2>
-              <section className='d-flex flex-lg-row flex-column justify-content-between align-items-baseline'>
+
+            <section className='d-flex flex-lg-row flex-column justify-content-between align-items-center gap-3'>
+                    {
+                        services.slice(0, 3).map(service => <Service
+                            key={service.sid}
+                            service={service}
+                        ></Service>)
+                    }
+                </section>
+          
+
+
+
+
+
+
+              {/* <section className='d-flex flex-lg-row flex-column justify-content-between align-items-baseline'>
             <Container>
                 <Row>
                     <Col md={4} className={'position-relative px-5'} >
@@ -29,7 +58,8 @@ const Services = () => {
                     <img src={services2} alt="thumbnail-1" className='img-fluid'/>
                         <h3 className='mt-3'>Civil Cases</h3>
                         <p className='text-muted'>Civil cases involve conflicts between people or institutions such as businesses, typically over money.Civil cases include lawsuits for money, landlord/tenant matters, breach of contract claims, and cases where one person is trying to make someone else do something (for example, sell some property).</p>
-                        <Link to={'/checkout'}><button className='btn btn-success position-absolute bottom-0'>Add service</button></Link>
+                        <Link to={'/checkout'}><button >}
+ className='btn btn-success position-absolute bottom-0'>Add service</button></Link>
                     </Col>
                 </Row>
             </Container>
@@ -37,7 +67,7 @@ const Services = () => {
 
            
                    
-                </section>
+                </section> */}
         </div>
     );
 };

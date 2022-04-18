@@ -6,7 +6,11 @@ const Blog = () => {
     const [readMore2, setReadMore2] = useState(false);
     const [readMore3, setReadMore3] = useState(false);
     return (
-        <div className='mt-5'>
+        <div className=''>
+            <div className='text-center'>
+            <h2 class="section-heading text-center my-5">Question Answer</h2>
+            </div>
+             
             <div className='w-50 mx-auto '>
                 <article>
 
