@@ -1,6 +1,7 @@
 # Treman AuthZ0
 
 [Private Repo link](https://github.com/programming-hero-web-course-4/independent-service-provider-rkrakibhasan680)
+[Live link](https://independent-service-prov-15a1e.web.app/)
 ## This site acquire frameworks:
 - React Bootstrap
 - Hero Icons for accordion indicator
@@ -15,9 +16,9 @@
 1. Unsplash for photos
 2. Sticky Navbar which simply means routes
     * Home
+    * Blog
     * Services
     * About
-    * Blog
     * A sign in / sign out button
 3. Using framework responsive approach
 4. Every button can response also
