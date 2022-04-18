@@ -20,7 +20,7 @@ const Reset = () => {
    }
  }
     return (
-        <div className='w-100  vh-100 login-form  d-flex align-items-center '>
+        <div className='w-100  vh-100 login-form  d-flex align-items-center  justify-content-center'>
             
         <div className='login-box mx-auto '>
      

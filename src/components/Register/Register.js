@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithFacebook } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
@@ -12,6 +12,7 @@ const Register = () => {
      
     const [ createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
     const [user] = useAuthState(auth);
+
 
     const navigate = useNavigate();
     
@@ -31,11 +32,11 @@ const Register = () => {
     console.log(user);
     return (
         <>
-         <div className='w-100  vh-100 login-form  d-flex align-items-center '>
+         <div className='w-100  vh-100 login-form  d-flex align-items-center justify-content-center'>
             
             <div className='login-box mx-auto '>
          
-          <h3 className='text-center display-4 text-white'>Register Page!</h3>
+          <h3 className='text-center display-3 text-white'>Register Page!</h3>
             <Form className='form-container' onSubmit={handleSubmitLoginForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Enter email" required onChange={event => setEmail(event.target.value)} />
@@ -56,6 +57,7 @@ const Register = () => {
                 <Link to={'/login'} className='text-primary'>LogIn</Link>
             </span></p>
             </div>
+            
           
             </div>
         </div>

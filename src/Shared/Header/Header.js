@@ -11,8 +11,8 @@ import logo from '../../images/Super-Lawyers-logo.png'
 const Header = () => {
     const [user] = useAuthState(auth);
     return (
-       <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top'>
+
+            <Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark" sticky='top'>
                 <Container>
                     {/* <Navbar.Brand href="/" className='fluid'> */}
                     <Link to={'/home'} className='w-50'>
@@ -25,6 +25,7 @@ const Header = () => {
                         <Nav className="ms-auto">
                             <Nav.Link as={CustomLink} to="/home">Home </Nav.Link>
                             <Nav.Link as={CustomLink} to="/blog">Blog</Nav.Link>
+                            <Nav.Link as={CustomLink} to="/services">Services</Nav.Link>
                             <Nav.Link as={CustomLink} to="/About">About</Nav.Link>
                             <Nav.Link as={CustomLink} to="/checkout">CheckOut</Nav.Link>
 
@@ -33,7 +34,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-       </div>
+      
     );
 };
 

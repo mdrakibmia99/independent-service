@@ -1,12 +1,20 @@
 
-.hero{
-    background-image: url("../../images/hero-section.jpg");
-    position: relative;
-    z-index: 1;
+.hero-bg{
+    background-color: rgba(0, 0, 0, 0.7);
+
+   
 }
 
 .hero h2, .hero span{
     color: white;
+}
+@media only screen and (max-width:450px) {
+    .hero{
+      overflow: hidden;
+      width: 25%;
+      size: static;
+    }
+    
 }
 
 .hero span{
@@ -17,18 +25,7 @@
     font-size: 5rem;
 }
 
-.hero::after{
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
-}
+
 
 .common-header{
     text-align: center;
